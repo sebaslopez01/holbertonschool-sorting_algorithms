@@ -11,7 +11,8 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, is_swap = 0;
+	size_t i, is_swap = 0;
+	int temp_val;
 
 	while (1)
 	{
@@ -19,7 +20,10 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[i] > array[i + 1])
 			{
+				temp_val = array[i + 1];
 				array[i + 1] = array[i];
+				array[i] = temp_val;
+
 				is_swap = 1;
 			}
 		}

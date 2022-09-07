@@ -30,6 +30,7 @@ void selection_sort(int *array, size_t size)
 			temp_val = array[min_idx];
 			array[min_idx] = array[i];
 			array[i] = temp_val;
+			print_array(array, size);
 		}
 	}
 }

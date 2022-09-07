@@ -40,7 +40,6 @@ void quick_sort_helper(int *array, size_t size, int low, int high)
 	{
 		pivot = partition(array, size, low, high);
 
-		print_array(array, size);
 		quick_sort_helper(array, size, low, pivot - 1);
 
 		quick_sort_helper(array, size, pivot + 1, high);

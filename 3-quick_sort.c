@@ -18,7 +18,6 @@ int partition(int *array, size_t size, int low, int high)
 		{
 			greater_val++;
 			swap(&array[greater_val], &array[i]);
-			print_array(array, size); 
 		}
 	}
 

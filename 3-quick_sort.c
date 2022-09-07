@@ -35,7 +35,7 @@ void quick_sort_helper(int *array, size_t size, int low, int high)
 
 	if (low < high)
 	{
-		pivot = partition(array, low, high);
+		pivot = partition(array, size, low, high);
 
 		print_array(array, size);
 		quick_sort_helper(array, size, low, pivot - 1);

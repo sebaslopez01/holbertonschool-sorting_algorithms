@@ -28,7 +28,7 @@ void insertion_sort_list(listint_t **list)
 			next_node->next = current;
 			next_node->prev = current->prev;
 			current->prev = next_node;
-
+			print_list(*list);
 			prev_node = current->prev;
 			while (prev_node != NULL && prev_node->prev != NULL)
 			{
@@ -42,6 +42,7 @@ void insertion_sort_list(listint_t **list)
 					if (next_node->prev != NULL)
 						next_node->prev->next = prev_node;
 					next_node->prev = prev_node;
+					print_list(*list);
 				}
 				else
 					prev_node = prev_node->prev;

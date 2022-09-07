@@ -1,6 +1,37 @@
 #include "sort.h"
 
 
+/**
+ * change_prev_node - Swaps the position of the current node,
+ * with the previous
+ * @prev_node: Pointer to the previous node
+ *
+ * Return: void
+ */
+void change_prev_node(listint_t *prev_node)
+{
+	listint_t *next_node = NULL;
+
+	next_node = prev_node->prev;
+	prev_node->next->prev = next_node;
+	next_node->next = prev_node->next;
+	prev_node->next = prev_node->prev;
+	prev_node->prev = prev_node->prev->prev;
+
+	if (next_node->prev != NULL)
+		next_node->prev->next = prev_node;
+
+	next_node->prev = prev_node;
+}
+
+
+/**
+ * get_first_node - Gets a reference to the first node of
+ * doubly linked list
+ * @list: Doubly linked list
+ *
+ * Return: A pointer to the first node
+ */
 listint_t *get_first_node(listint_t **list)
 {
 	listint_t *current = *list;
@@ -45,14 +76,7 @@ void insertion_sort_list(listint_t **list)
 			{
 				if (prev_node->n < prev_node->prev->n)
 				{
-					next_node = prev_node->prev;
-					prev_node->next->prev = next_node;
-					next_node->next = prev_node->next;
-					prev_node->next = prev_node->prev;
-					prev_node->prev = prev_node->prev->prev;
-					if (next_node->prev != NULL)
-						next_node->prev->next = prev_node;
-					next_node->prev = prev_node;
+					change_prev_node(prev_node);
 					print_list(get_first_node(&current));
 				}
 				else

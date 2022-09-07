@@ -8,7 +8,7 @@ void swap(int *a, int *b)
 }
 
 
-int partition(int *array, int low, int high)
+int partition(int *array, size_t size, int low, int high)
 {
 	int i, pivot = array[high], greater_val = low - 1;
 
@@ -18,10 +18,12 @@ int partition(int *array, int low, int high)
 		{
 			greater_val++;
 			swap(&array[greater_val], &array[i]);
+			print_array(array, size);
 		}
 	}
 
 	swap(&array[greater_val + 1], &array[high]);
+	print_array(array, size);
 
 	return (greater_val + 1);
 }
@@ -33,13 +35,11 @@ void quick_sort_helper(int *array, size_t size, int low, int high)
 
 	if (low < high)
 	{
-		pivot = partition(array, low, high);
+		pivot = partition(array, size, low, high);
 
 		quick_sort_helper(array, size, low, pivot - 1);
-		print_array(array, size);
 
 		quick_sort_helper(array, size, pivot + 1, high);
-		print_array(array, size);
 	}
 }
 

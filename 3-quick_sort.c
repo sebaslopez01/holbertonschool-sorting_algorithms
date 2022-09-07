@@ -39,6 +39,7 @@ void quick_sort_helper(int *array, size_t size, int low, int high)
 		print_array(array, size);
 
 		quick_sort_helper(array, size, pivot + 1, high);
+		print_array(array, size);
 	}
 }
 

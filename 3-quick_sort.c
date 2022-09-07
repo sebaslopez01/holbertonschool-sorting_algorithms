@@ -8,20 +8,22 @@ void swap(int *a, int *b)
 }
 
 
-int partition(int *array, int low, int high)
+int partition(int *array, size_t size, int low, int high)
 {
 	int i, pivot = array[high], greater_val = low - 1;
 
 	for (i = low; i < high; i++)
 	{
-		if (array[i] <= pivot)
+		if (array[i] < pivot)
 		{
 			greater_val++;
 			swap(&array[greater_val], &array[i]);
+			print_array(array, size);
 		}
 	}
 
 	swap(&array[greater_val + 1], &array[high]);
+	print_array(array, size);
 
 	return (greater_val + 1);
 }

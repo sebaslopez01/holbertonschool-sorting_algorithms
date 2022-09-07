@@ -14,11 +14,13 @@ int partition(int *array, size_t size, int low, int high)
 
 	for (i = low; i < high; i++)
 	{
-		if (array[i] < pivot)
+		if (array[i] <= pivot)
 		{
 			greater_val++;
 			swap(&array[greater_val], &array[i]);
-			print_array(array, size);
+			
+			if (greater_val != i)
+				print_array(array, size);
 		}
 	}
 

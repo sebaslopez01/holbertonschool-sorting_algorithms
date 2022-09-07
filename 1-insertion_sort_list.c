@@ -51,4 +51,5 @@ void insertion_sort_list(listint_t **list)
 		else
 			current = current->next;
 	}
+	*list = next_node;
 }
